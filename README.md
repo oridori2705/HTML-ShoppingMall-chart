@@ -57,4 +57,5 @@ HTML기반 PHP 활용 의류 쇼핑몰, 회원정보와 구매기록 등을 이�
 ![13](https://user-images.githubusercontent.com/90139306/217287135-c7e5438e-e06c-40fa-9ee7-b52bea906fc4.JPG)
 
 
+# 마이페이지 및 회원 탈퇴 부분
 ![14](https://user-images.githubusercontent.com/90139306/217287142-21ff9dd1-2514-4b98-aafa-ebdaaa0d506f.JPG)
