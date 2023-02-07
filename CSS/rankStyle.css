@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+.div {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 10px;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	border-bottom:1px solid gray;
+}
+
+.p_main {
+	padding: 5px;
+	border-bottom:1px solid gray;
+}
+.font_main {
+	font-size: 30px;
+}
+.sify {
+	border-right: 1px gray;
+}
+
+
+.font_clf {
+	margin-right: 10px;
+}
+.font_sel {
+	color: black;
+	font-weight: bold;
+}
+
+a {
+	text-decoration-line: none;
+}
+a font {
+	margin-left: 100px;
+	color: gray;
+	text-decoration-line: none;
+}
+.div_ran {
+	width: 1000px;
+	margin: 0 auto;
+	/*
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	border-bottom:1px solid gray;*/
+}
+
+.p_ran {
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	width: 150px;
+}
+
+.img_ran {
+	width: 100px;
+	text-align: center;
+}
+
+.table_ran {
+	width: 1000px;
+	border-collapse: collapse;
+}
+
+.table_pro {
+	width: 165px;
+	height: 300px;
+}
+.td_border {
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+
+}
+.td {
+	padding-left: 25px;
+}
+.td_img {
+	text-align: center;
+	padding-bottom: 10px;
+
+}
+
+.font_ran {
+	font-weight: bold;
+	margin-left: 2px;
+}
+
+.goodsStar p{
+	display:inline-block; /* 가로 정렬을 위해*/
+	padding-left: 34px;
+	margin-right: 90px; /*간격 맞추기위함*/
+}
+
+.star {
+	position: relative;
+	color: #ddd;
+}
+
+.star input {
+	width: 100%;
+	height: 100%;
+	position: absolute; /*겹침*/
+	left: 0;
+	opacity: 0; /*투명화*/
+	cursor: pointer;
+}
+/* 점수 측정 별(빨간 별) */
+.star span { 
+	width: 140px;/*여기가 별점 적용하는 것*/
+	position: absolute; 
+	left: 0;
+	color: red;
+	overflow: hidden;
+	pointer-events: none;
+}

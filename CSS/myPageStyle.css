@@ -1,0 +1,41 @@
+@charset "utf-8";
+.userInformation {
+	width:2000px;
+	
+}
+
+
+.userInformation table{
+	text-align:center;
+	margin-left: auto; /*테이블 중앙배치*/
+	margin-right: auto; /*테이블 중앙배치*/
+	margin-top: 50px;
+
+
+}
+
+/*구매내역 div*/
+.purchaseHistory {
+	width:2000px;
+	margin-top:50px;
+	
+}
+.purchaseHistory h2{
+	text-align:center;
+	
+}
+.purchaseHistory table{
+	margin-left: auto; /*테이블 중앙배치*/
+	margin-right: auto; /*테이블 중앙배치*/
+	border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+.purchaseHistory table th{
+	 border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+.purchaseHistory table td{
+	 border-bottom: 1px solid #444444;
+    padding: 10px;
+		text-align:center;
+}

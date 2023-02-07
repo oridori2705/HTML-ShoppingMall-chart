@@ -1,0 +1,181 @@
+* {margin:0;padding:0;}
+/* https://blog.naver.com/co-nam/222084570760 공부 */
+	.section input[id*="slide"] 
+	{
+		/* 라디오값을 화면에서 가림  */
+		display:none;
+	}
+	.section .slidewrap 
+	{
+		height: 600px;
+		width: 1905px;  
+		margin-bottom:600px;
+	}
+	.section .slidelist {
+		/* white-space:nowrap 중요 */
+		/* 원래 div의 부모영역에 값을 넣으면 자동으로 줄바꿈이 되는데 이 속성을 넣으면 */
+		/* 줄바꿈이 없어지고 div영역을 벗어나게된다 */
+		/* 그래서 슬라이드 역역을 ul li의 리스트 태그로만들면 li의 기본속성이 블록이라 
+		아래로 한 줄씩 나타나게 되는데 ul에 white-space와 
+		여기에 display:inline-block을 주게되면 오른쪽으로 붙게 된다*/
+		/* 그래서 라디오그룹으로 되어있는 li들이 해당 label을 클릭하게 되면 li가 왼쪽으로 이동하게되면서 
+		우리는 하나의 배너를 볼 수 있게된다 */
+		white-space:nowrap;
+		font-size:0; /*안쪽의 빈 영역을 없앰*/
+		overflow:hidden;</*영역을 벗어나 있으면안보이게하는 속성 쉽게 말해 슬라이드1을보고잇다면 2,3은 뒤에잇는데 안보이게*/
+		position:relative; 
+		
+	}
+	.section .slidelist > li {
+		/* display:inline-block  위 설명*/
+		display:inline-block;
+		vertical-align:middle;/*세로정렬을 가운데로*/
+		width:100%; /*부모역역을 가득 채우게 끔*/
+		transition:all .5s; /*자연스러운 애니메이션 효과 슬라이드의 빠르기*/
+	}
+	.section .slidelist > li > a {
+		display:block;/*a에 있는 컨텐츠들을 다 담을 수 있도록 함*/
+		position:relative; /*버튼으로 사용할 label태그를 자율배치시키기위해 기준을 맞추는 속성*/
+	}
+	.section .slidelist > li > a img 
+	{
+		width:100%; /*이미지만 100퍼센트로해서 꽉 채우기*/
+	}
+	.section .slidelist label {
+		position:absolute; /*label을 자율배치하기위해 absoulute속성을 주고*/
+		z-index:10;top:50%; /*그 위치를 정함*/
+		transform:translateY(-50%);/*자신을 기준으로 반만큼 올려서 가운데에 오게끔한다*/
+		padding:50px;
+		cursor:pointer;/*커서가 포인터로 바뀜*/
+	}
+	.section .slidelist .textbox {
+		position:absolute;
+		z-index:1;top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		line-height:1.6;
+		text-align:center;
+	}
+	.section .slidelist .textbox h3 {
+		font-size:36px;
+		color:#fff;;
+		transform:translateY(30px);
+		transition:all .5s;
+	}
+	.section .slidelist .textbox p {
+		font-size:16px;
+		color:#fff;
+		opacity:0;
+		transform:translateY(30px);
+		transition:all .5s;
+	}
+	
+	/* input에 체크되면 슬라이드 효과 */
+	.section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {
+		/* 첫번째 input이 클릭되면 input 밑으로 
+		slidewarp클래스 
+		그 안에 있는 slide-control 
+		그리고 그 자식요소인 li에대해 
+		스타일을 부여하는 것임*/
+		/* li의 기준으로 XY가 십자가로 되어있고 슬라이드 가 가로로 되어있다
+		그래서 슬라이드1의 정중앙이 X,Y(0,0)이 기준이 되고 
+		위에서 width가 100%rk 되어있으니까 
+		슬라이드1의 x값은 왼쪽-50%와 오른쪽+50%로 최대 최소가 결정되어 있다.
+		X의 값이 변할 때 슬라이드가 이동하는 방식이다
+		*/
+		transform:translateX(0%);
+	}
+	.section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {
+		/* 위 설명대로 위에서 슬라이드가 각각 width가 100%rk 되어있으니까
+		-100%를 하게 되면  왼쪽으로 -100% 당겨지게 되므로 슬라이드 2로 넘어가게 되는 것이다.*/
+		transform:translateX(-100%);
+	}
+	.section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {
+		transform:translateX(-200%);
+	}
+
+	/* input에 체크되면 텍스트 효과 */
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3 {
+		opacity:1;transform:translateY(0);transition-delay:.2s;
+		}
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox p {
+		opacity:1;transform:translateY(0);transition-delay:.4s;
+		}
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox h3 {
+		opacity:1;
+		transform:translateY(0);
+		transition-delay:.2s;
+	}
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox p {
+		opacity:1;
+		transform:translateY(0);
+		transition-delay:.4s;
+		}
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox h3 {
+		opacity:1;
+		transform:translateY(0);
+		transition-delay:.2s;
+	}
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox p {
+		opacity:1;
+		transform:translateY(0);
+		transition-delay:.4s;
+	}
+
+	/* 좌,우 슬라이드 버튼 */
+	.slide-control > div {
+		/* 자식요소를 display:none으로 가리고 */
+		display:none;
+	}
+	.section .left {
+		/* 여기에 왼쪽 label 속성을 정함 */
+		left:30px; /*약간 왼쪽기준으로 30px 옮김*/
+		background:url('../Images/left.png') center center / 100% no-repeat;
+	}
+	.section .right {
+		/* 여기에 오른쪽 label 속성 */
+		right:30px;
+		background:url('../Images/right.png') center center / 100% no-repeat;
+	}
+	.section input[id="slide01"]:checked ~ .slidewrap .slide-control > div:nth-child(1) {
+		/* 슬라이드가 클릭이 되면 체크된 변화값으로 display:block으로 나타나게 하면 화살표가 고정된 채로 슬라이드만 움직이기 된다. */
+		display:block;
+	}
+	.section input[id="slide02"]:checked ~ .slidewrap .slide-control > div:nth-child(2) {
+		display:block;
+	}
+	.section input[id="slide03"]:checked ~ .slidewrap .slide-control > div:nth-child(3) {
+		display:block;
+	}
+
+
+
+
+
+	/* 페이징
+	슬라이드 밑에 라디오 체크처럼 생기게 하는 것*/
+	.slide-pagelist {
+		text-align:center;
+		padding:20px;
+	}
+	.slide-pagelist > li {
+		display:inline-block;
+		vertical-align:middle;
+	}
+	.slide-pagelist > li > label {
+		display:block;
+		padding:8px 30px;
+		border-radius:30px;
+		background:#ccc;
+		margin:20px 10px;
+		cursor:pointer;
+	}
+	.section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(1) > label {
+		background:#999;
+	}
+	.section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(2) > label {
+		background:#999;
+	}
+	.section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(3) > label {
+		background:#999;
+	}
